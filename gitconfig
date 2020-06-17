@@ -1,0 +1,18 @@
+[user]
+	name = Luke Scoates
+	email = lscoates@gmail.com
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = "!git --no-pager branch"
+	l = "!. ~/.githelpers && pretty_git_log"
+	r = !GIT_NO_PAGER=1 git l -30
+	ra = !git r --all
+[credential]
+	helper = osxkeychain
+[core]
+	excludesfile = /Users/luke/.gitignore_global
+	editor = vim
+[pull]
+	rebase = true
