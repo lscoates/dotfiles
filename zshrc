@@ -92,43 +92,19 @@ source $ZSH/oh-my-zsh.sh
 alias ag='ag --path-to-ignore ~/.agignore'
 alias b=bundle
 alias be='RUBYOPT=W0 b exec'
+alias bm='bundle install && rails db:migrate'
 alias chargify_reset='be rake chargify:reset'
-alias ci='solano run'
 alias clean-branches='git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d'
 alias clean-db='rake db:drop && rake db:create && rake db:migrate && rake db:seed'
 alias clean-db-test-env='RAILS_ENV=test rake db:drop && RAILS_ENV=test rake db:create && RAILS_ENV=test rake db:migrate'
-alias cuc='be cucumber'
-alias deploy='git push origin master && git push heroku master'
-alias devtail='tail -f ./log/development.log'
 alias fs='foreman start'
-alias giton='git checkout'
-alias gits='git status'
 alias grep='grep --color=auto --exclude-dir={.bzr,.cvs,.git,.hg,.svn}'
-alias history='fc -l 1'
-alias mini='ruby -Ilib:test'
-alias mongo='mongod --config /usr/local/etc/mongod.conf'
-alias notes='be rake release_notes | pbcopy'
-alias oops='git commit -am '\''oops'\'' && squash'
-alias recent='git recent'
-alias reset_author='git commit --amend --reset-author'
+alias reset-services='brew services stop mysql && brew services stop redis && brew services stop elasticsearch24 && brew services start mysql && brew services start redis && brew services start elasticsearch24'
 alias squash='git rebase -i master'
 alias tag='ctags -R --exclude=.git --exclude=log *'
-alias unhitch='hitch -u'
+alias taildev='tail -f ./log/development.log'
+alias tailtest='tail -f ./log/test.log'
 alias vi='vim'
-alias reset-services='brew services stop mysql && brew services stop redis && brew services stop elasticsearch24 && brew services start mysql && brew services start redis && brew services start elasticsearch24'
-
-# Add the following to your ~/.bashrc or ~/.zshrc
-#
-# Alternatively, copy/symlink this file and source in your shell.  See `hitch --setup-path`.
-
-hitch() {
-  command hitch "$@"
-  if [[ -s "$HOME/.hitch_export_authors" ]] ; then source "$HOME/.hitch_export_authors" ; fi
-}
-alias unhitch='hitch -u'
-
-# Uncomment to persist pair info between terminal instances
-# hitch
 
 # From https://github.com/pengwynn/dotfiles/blob/master/zsh/window.zsh
 # Sets the window title nicely no matter where you are
